@@ -1,7 +1,6 @@
 let userValue = 0;
 let gameOutcome;
-let userInput = prompt("Rock, Paper, or Scissors");
-let computervalue = Math.ceil(Math.random() * 3);
+
 const rock = 1;
 const paper = 2;
 const scissors = 3;
@@ -33,7 +32,7 @@ while(roundsPassed < 6) {
             case "scissors": userValue = scissors;
             break;
 
-            default: userValue = 0;
+            default: console.log("Incorrect Value");
         }
     
         logic(userValue, computervalue);
@@ -138,7 +137,7 @@ while(roundsPassed < 6) {
 
     }
 
-    roundsPassed++;
+    roundsPassed = roundsPassed + 1;
 
 
 }
