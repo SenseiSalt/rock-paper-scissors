@@ -1,1 +1,1 @@
-# rock-paper-scissors
+Creating a command line rock paper scissors project. 
