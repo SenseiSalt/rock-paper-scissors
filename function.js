@@ -6,21 +6,23 @@ const scissors = 3;
 const tie = 0;
 const win = 1;
 const lose = 2;
-let roundsPassed = 0;
 let userInput;
+let userInputLower;
+let userWins = 0;
+let computerWins = 0;
 
 let computervalue = Math.ceil(Math.random() * 3);
 
-while(roundsPassed < 5) {
+while(userWins < 5 || computerWins < 5) {
 
     getValues();
 
     function getValues() {
         let userInput = prompt("Rock, Paper, or Scissors");
-        
+        let userInputLower = userInput.toLowerCase();
 
 
-        assignment(userInput);
+        assignment(userInputLower);
 
     }
 
@@ -38,7 +40,7 @@ while(roundsPassed < 5) {
             break;
 
             default: console.log("Incorrect Value");
-                     getValues();
+                getValues();
                     
 
 
@@ -54,6 +56,9 @@ while(roundsPassed < 5) {
 
 
     function logic(uval, cval) {
+        
+        console.log(uval + " " +cval);
+        
         switch(uval) {
             case 1:
                 if(cval == 1) {
@@ -133,20 +138,26 @@ while(roundsPassed < 5) {
         
         switch(winLoseOrTie) {
             case 0: console.log("You Tie");
+                    userWins++;
+                    computerWins++;
             break;
         
             case 1: console.log("You Win");
+                    userWins++;
             break;
 
             case 2: console.log("You Lose");
+                    computerWins++;
             break;
 
         }
-
-
+        
+        console.log("Rounds Won " + userWins);
+        console.log("Computer wins " + computerWins);
     }
     
-    roundsPassed = roundsPassed + 1;
+    
 
     
 }
+
