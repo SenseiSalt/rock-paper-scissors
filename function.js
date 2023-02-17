@@ -9,6 +9,7 @@ const lose = 2;
 let userInput;
 let userWins = 0;
 let computerWins = 0;
+let userInputLower;
 
 
 
@@ -17,11 +18,12 @@ let computerWins = 0;
         getValues();
 
         function getValues() {
-            let userInput = prompt("Rock, Paper, or Scissors");
+            userInput = prompt("Rock, Paper, or Scissors");
+            userInputLower = userInput.toLowerCase();
             
 
 
-            assignment(userInput);
+            assignment(userInputLower);
 
         }
 
@@ -38,9 +40,6 @@ let computerWins = 0;
                 case "scissors": userValue = scissors;
                 break;
 
-                default: console.log("Incorrect Value");
-                    getValues();
-                        
 
             }
         
@@ -55,7 +54,7 @@ let computerWins = 0;
 
         function logic(uval, cval) {
             
-            console.log(uval + " " +cval);
+            
             
             switch(uval) {
                 case 1:
@@ -158,3 +157,6 @@ let computerWins = 0;
         console.log("Computer wins " + computerWins);
         
     }
+
+if (userWins >= 5) {console.log("You win")}
+else if (computerWins >= 5) {console.log("You lose")}
