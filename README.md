@@ -1,1 +1,1 @@
-Creating a command line rock paper scissors project. 
+Creating a Rock Paper Scissors Game with UI
