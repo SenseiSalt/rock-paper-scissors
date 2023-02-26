@@ -9,7 +9,6 @@ body {
 }
 
 .rounds {
-
     filter: blur(3px);
 }
 
@@ -27,10 +26,7 @@ body {
 }
 
 .wins-text {
-
-
     font-size: 36px;
-
 }
 
 
