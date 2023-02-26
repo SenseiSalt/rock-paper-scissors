@@ -10,7 +10,7 @@ startGame.addEventListener('click', playGame);
 
 function playGame() {
         
-
+    console.log("AAA");
     userWins = 0;
     computerWins = 0;
     userWinsText.innerText = "User Wins:";
@@ -18,169 +18,166 @@ function playGame() {
     startGame.style.display = 'none';
     imagesToChoose.forEach(image => image.style.display = "flex");
     blurredElements.forEach(element => element.style.filter = 'none');
-    game();
-
+    imagesToChoose.forEach(image => image.addEventListener('click', beginGame));
 }
 
-function game() {
-        console.log(userWins);
-        console.log(computerWins);
-        imagesToChoose.forEach(image => 
-            image.addEventListener('click', (e) => {
-
-                id = e.target.getAttribute('id');
-            
-
-                if (id == 'left-rock') {
-                    userChoice = 1;
-                    logic(userChoice);
 
 
-                
-                
-                }
-
-                else if (id == 'left-paper') {
-                    userChoice = 2;
-                    logic(userChoice);
-
-
-
-                }
-
-
-                else if (id == 'left-scissors') {
-                    userChoice = 3;
-                    logic(userChoice);
-                }
-                
-
-                
-                
-            })
-        );
-            
+function beginGame(e) {
     
+    console.log("AAA");
+    id = e.target.getAttribute('id');
+    
+
+    if (id == 'left-rock') {
+        userChoice = 1;
+        logic(userChoice);
+            
+
+        
+        
+    }
+
+    else if (id == 'left-paper') {
+        userChoice = 2;
+        logic(userChoice);
+
+
+
     }
 
 
-        function logic(logicDecider) {
-            computerChoice = Math.ceil(Math.random() * 3);
-            switch (logicDecider) {
-                case 1: 
-                    if (computerChoice == 1) {
-                        winOrLose = 1;
-                        updateDOM(winOrLose);
+    else if (id == 'left-scissors') {
+        userChoice = 3;
+        logic(userChoice);
+    }
+        
 
-                    }
+}
 
-                    else if (computerChoice == 2) {
-                        winOrLose = 0;
-                        updateDOM(winOrLose);
-                    }
+
+
+function logic(logicDecider) {
+    computerChoice = Math.ceil(Math.random() * 3);
+    switch (logicDecider) {
+        case 1: 
+            if (computerChoice == 1) {
+                winOrLose = 1;
+                updateDOM(winOrLose);
+
+                }
+
+            else if (computerChoice == 2) {
+                winOrLose = 0;
+                updateDOM(winOrLose);
+            }
 
                     
-                    else if (computerChoice == 3) {
-                        winOrLose = 2;
-                        updateDOM(winOrLose);
+            else if (computerChoice == 3) {
+                winOrLose = 2;
+                updateDOM(winOrLose);
 
-                    }
+            }
 
-                break;
+        break;
 
-                case 2:
-                    if (computerChoice == 1) {
-                        winOrLose = 2;
-                        updateDOM(winOrLose);
+        case 2:
+            if (computerChoice == 1) {
+                winOrLose = 2;
+                updateDOM(winOrLose);
 
-                    }
+            }
            
-                    else if (computerChoice == 2) {
+            else if (computerChoice == 2) {
 
-                        winOrLose = 1;
-                        updateDOM(winOrLose);
-                    }
-
-                    
-                    else if (computerChoice == 3) {
-
-
-                        winOrLose = 0;
-                        updateDOM(winOrLose);
-
-                    }
-
-                break;
-
-
-                    
-                case 3:
-                    if (computerChoice == 1) {
-
-                        winOrLose = 0;
-                        updateDOM(winOrLose);
-                    }
-
-
-                    else if (computerChoice == 2) {
-                        winOrLose = 2;
-                        updateDOM(winOrLose);
-                    }
-                    
-                    else if (computerChoice == 3) {
-
-                        winOrLose = 1;
-                        updateDOM(winOrLose);
-                    }
-
-                break;
+                winOrLose = 1;
+                updateDOM(winOrLose);
             }
-        }
 
-        function updateDOM(whoWon) {
-            userWinsText.innerText = "User Wins:";
-            computerWinText.innerText = "Computer Wins:";
+                    
+            else if (computerChoice == 3) {
+
+
+                winOrLose = 0;
+                updateDOM(winOrLose);
+
+            }
+
+        break;
+
+
+                    
+        case 3:
+            if (computerChoice == 1) {
+
+                winOrLose = 0;
+                updateDOM(winOrLose);
+            }
+
+
+            else if (computerChoice == 2) {
+                winOrLose = 2;
+                updateDOM(winOrLose);
+            }
+                    
+            else if (computerChoice == 3) {
+
+                winOrLose = 1;
+                updateDOM(winOrLose);
+            }
+
+        break;
+    }
+}
+
+function updateDOM(whoWon) {
+    userWinsText.innerText = "User Wins:";
+    computerWinText.innerText = "Computer Wins:";
             
             
-            if (whoWon == 0) {
-                computerWins++;
+    if (whoWon == 0) {
+        computerWins++;
 
-            }
+    }
 
-            else if (whoWon == 1) {
+    else if (whoWon == 1) {
 
-                computerWins++;
-                userWins++;
-
-
-            }
-
-            else if (whoWon == 2) {
-                userWins++;
-
-            }
-
-            userWinsText.innerText = userWinsText.innerText + userWins;
-            computerWinText.innerText = computerWinText.innerText + computerWins;
-            endGame(userWins, computerWins);
+        computerWins++;
+        userWins++;
 
 
+    }
 
-        }
+    else if (whoWon == 2) {
+        userWins++;
+
+    }
+
+    userWinsText.innerText = userWinsText.innerText + userWins;
+    computerWinText.innerText = computerWinText.innerText + computerWins;
+    endGame(userWins, computerWins);
+
+
+
+}
         
-        function endGame(u, c) {
+function endGame(u, c) {
         
-            if (u >= 5 || c >=5 ) {
-                rounds++
-                imagesToChoose.forEach(image => image.style.display = 'none')
-                blurredElements.forEach(element => element.style.filter = 'blur(2px)');
-                startGame.style.display = 'block';
-                startGame.innerText = "Play Again?"
+    if (u >= 5 || c >=5 ) {
+        rounds++;
+        imagesToChoose.forEach(image => image.style.display = 'none');
+
                 
-            }
+
+
+        blurredElements.forEach(element => element.style.filter = 'blur(2px)');
+        startGame.style.display = 'block';
+        startGame.innerText = "Play Again?";
+                
+    }
 
 
 
-        }
+}
 
     
