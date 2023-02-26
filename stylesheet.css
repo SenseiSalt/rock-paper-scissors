@@ -77,7 +77,12 @@ img {
 }
 
 .left-image:hover {
-    transform: scale(1.1);
+    transform: scale(1.1);  
+    
+}
+
+.left-image:active {
+    transform: scale(.9);
 }
 
 .left-chosen-text {
@@ -111,12 +116,12 @@ img {
 }
 
 .continue:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 
 }
 
 .continue:active {
-    transform: scale(.9);
+    transform: scale(.95);
 
 
 }
